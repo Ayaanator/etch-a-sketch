@@ -1,0 +1,24 @@
+.boxes {
+    height: 1px;
+    width: 1px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    gap: 100px
+}
+
+.container {
+    height: 1px;
+    width: 1px;
+    border: 1px solid blue;
+    display: flex;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
