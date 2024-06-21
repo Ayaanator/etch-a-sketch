@@ -18,7 +18,19 @@
     display: flex;
 }
 
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wrapper {
+    display: flex;
+    gap: 100px;
+}
+
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }

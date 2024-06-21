@@ -1,10 +1,23 @@
 let size = 800;
 let dimensions = 100;
+
 const container = document.querySelector(".container");
+const resize = document.querySelector("#resize");
+const erase = document.querySelector("#erase");
+
 container.style.height = `${size}px`;
 container.style.width = `${size}px`;
 let mouseDown = false;
 let leftClick = false;
+
+resize.addEventListener("click", () => {
+    dimensions = parseInt(prompt("Enter the new dimension on the grid: "));
+    createGrid(dimensions);
+});
+
+erase.addEventListener("click", () => {
+    createGrid(dimensions);
+});
 
 container.addEventListener("mousedown", (e) => {
     mouseDown = true;
@@ -18,7 +31,10 @@ container.addEventListener("mousedown", (e) => {
 container.addEventListener("mouseup", ()=> {mouseDown = false;});
 
 function createGrid(num) {
-    console.log("working!");
+
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
     for(let i = 0; i < num; i++) {
         const row = document.createElement("div");
@@ -32,7 +48,7 @@ function createGrid(num) {
             col.addEventListener("mouseover", () => {
                 if(mouseDown) {
                     if(leftClick) {
-                        col.style.backgroundColor = "red";
+                        col.style.backgroundColor = `${document.querySelector("#favcolor").value}`;
                     } else {
                         col.style.backgroundColor = "white";
                     }
@@ -45,8 +61,6 @@ function createGrid(num) {
 
         container.appendChild(row);
     }
-
-    console.log("finished!");
 }
 
 createGrid(dimensions);
