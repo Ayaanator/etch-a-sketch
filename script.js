@@ -28,7 +28,12 @@ container.addEventListener("mousedown", (e) => {
     }
 
 });
+
 container.addEventListener("mouseup", ()=> {mouseDown = false;});
+
+container.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+});
 
 function createGrid(num) {
 
@@ -52,6 +57,14 @@ function createGrid(num) {
                     } else {
                         col.style.backgroundColor = "white";
                     }
+                }
+            });
+
+            col.addEventListener("mousedown", () => {
+                if(leftClick) {
+                    col.style.backgroundColor = `${document.querySelector("#favcolor").value}`;
+                } else {
+                    col.style.backgroundColor = "white";
                 }
             });
 
